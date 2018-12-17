@@ -1,6 +1,8 @@
 package appys.controller;
 
+import appys.pojo.BackendUser;
 import appys.service.BackendUserService;
+import appys.tools.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/manager")
+@RequestMapping("/mag")
 public class UserLoginController {
 
     @Autowired
@@ -20,11 +22,26 @@ public class UserLoginController {
         return "backendlogin";
     }
 
-    public String BackendUserlLogin(HttpSession session, String userCode,String password, HttpServletRequest request){
-        if(userCode!=null){
 
+    @RequestMapping("/dologin")
+    public String BackendUserlLogin(HttpSession session, String userCode,String userPassword, HttpServletRequest request){
+        if(userCode!=null){
+            try {
+               BackendUser backendUser= backendUserService.login(userCode,userPassword);
+               if (backendUser!=null){
+                   session.setAttribute(Constants.USER_SESSION,backendUser);
+                   return "backend/main";
+               }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+        return "backendlogin";
+    }
+    @RequestMapping("/logout")
+    public String BackendUserLogout(HttpSession session){
+        session.removeAttribute(Constants.USER_SESSION);
+        return "backendlogin";
     }
 
 }

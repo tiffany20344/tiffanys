@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.appys.dao.backenduser.BackendUserMapper">
+<mapper namespace="appys.dao.backenduser.BackendUserMapper">
     <select id="getLoginCode" resultType="backendUser">
          SELECT  u.*,d.valueName   FROM backend_user u , data_dictionary d
         <where>
             u.`userType` = d.`valueId`
             AND  d.`typeCode`='USER_TYPE'
-            <if test="userCode ! = null">
+            <if test=" userCode != null">
                 and u.userCode  = #{userCode}
             </if>
         </where>
