@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="appys.dao.backenduser.BackendUserMapper">
     <select id="getLoginCode" resultType="backendUser">
-         SELECT  u.*,d.valueName   FROM backend_user u , data_dictionary d
+         SELECT  u.*,d.valueName as userTypeName  FROM backend_user u , data_dictionary d
         <where>
             u.`userType` = d.`valueId`
             AND  d.`typeCode`='USER_TYPE'

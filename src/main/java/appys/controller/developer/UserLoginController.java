@@ -1,7 +1,7 @@
-package appys.controller;
+package appys.controller.developer;
 
 import appys.pojo.BackendUser;
-import appys.service.BackendUserService;
+import appys.service.backend.BackendUserService;
 import appys.tools.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,8 +1,7 @@
-package appys.service.impl;
+package appys.service.backend;
 
 import appys.dao.backenduser.BackendUserMapper;
 import appys.pojo.BackendUser;
-import appys.service.BackendUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
