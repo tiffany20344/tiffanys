@@ -32,7 +32,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form action="dologin" method="post">
+            <form action="/dev/dologin" method="post">
               <h1>APP开发者平台</h1>
               <div>
                 <input type="text" class="form-control" name="devCode" placeholder="请输入用户名" required="" />
@@ -50,7 +50,7 @@
 
               <div class="separator">
                 <div>
-                  <p>©2016 All Rights Reserved. </p>
+                  <p>©2018 All Rights Reserved. </p>
                 </div>
               </div>
             </form>

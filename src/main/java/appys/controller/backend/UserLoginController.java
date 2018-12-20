@@ -1,4 +1,4 @@
-package appys.controller.developer;
+package appys.controller.backend;
 
 import appys.pojo.BackendUser;
 import appys.service.backend.BackendUserService;
@@ -30,7 +30,7 @@ public class UserLoginController {
                BackendUser backendUser= backendUserService.login(userCode,userPassword);
                if (backendUser!=null){
                    session.setAttribute(Constants.USER_SESSION,backendUser);
-                   return "backend/main";
+                   return "redirect:/mag/main";
                }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -42,6 +42,11 @@ public class UserLoginController {
     public String BackendUserLogout(HttpSession session){
         session.removeAttribute(Constants.USER_SESSION);
         return "backendlogin";
+    }
+
+    @RequestMapping("/main")
+    public String main (){
+        return  "backend/main";
     }
 
 }

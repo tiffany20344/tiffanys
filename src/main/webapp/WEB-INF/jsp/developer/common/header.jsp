@@ -39,7 +39,7 @@
 			<div class="col-md-3 left_col menu_fixed">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="${pageContext.request.contextPath }/dev/flatform/main" class="site_title"><i class="fa fa-paw"></i> <span>APP
+						<a href="${pageContext.request.contextPath }/de/info/app" class="site_title"><i class="fa fa-paw"></i> <span>APP
 								BMS</span>
 						</a>
 					</div>
@@ -81,7 +81,7 @@
 										class="fa fa-chevron-down"></span>
 								</a>
 									<ul class="nav child_menu">
-										<li><a href="${pageContext.request.contextPath }/dev/flatform/app/list">APP维护</a>
+										<li><a href="${pageContext.request.contextPath }/de/info/app">APP维护</a>
 										</li>
 									</ul></li>
 							</ul>

@@ -3,8 +3,8 @@ $("#queryCategoryLevel1").change(function(){
 	if(queryCategoryLevel1 != '' && queryCategoryLevel1 != null){
 		$.ajax({
 			type:"GET",//请求类型
-			url:"categorylevellist.json",//请求的url
-			data:{pid:queryCategoryLevel1},//请求参数
+			url:"/de/info/category",//请求的url
+			data:{parentId:queryCategoryLevel1},//请求参数
 			dataType:"json",//ajax接口（请求url）返回的数据类型
 			success:function(data){//data：返回数据（json对象）
 				$("#queryCategoryLevel2").html("");
@@ -36,8 +36,8 @@ $("#queryCategoryLevel2").change(function(){
 	if(queryCategoryLevel2 != '' && queryCategoryLevel2 != null){
 		$.ajax({
 			type:"GET",//请求类型
-			url:"categorylevellist.json",//请求的url
-			data:{pid:queryCategoryLevel2},//请求参数
+			url:"/de/info/category",//请求的url
+			data:{parentId:queryCategoryLevel2},//请求参数
 			dataType:"json",//ajax接口（请求url）返回的数据类型
 			success:function(data){//data：返回数据（json对象）
 				$("#queryCategoryLevel3").html("");
