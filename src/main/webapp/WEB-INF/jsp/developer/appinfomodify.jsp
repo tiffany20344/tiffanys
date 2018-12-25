@@ -10,7 +10,7 @@
              <div class="clearfix"></div>
       </div>
       <div class="x_content">
-        <form class="form-horizontal form-label-left" action="appinfomodifysave" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal form-label-left" action="/de/info/update" method="post" enctype="multipart/form-data">
           <input type="hidden" name="id" id="id" value="${appInfo.id}">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">软件名称 <span class="required">*</span>
@@ -49,7 +49,7 @@
               data-validate-length-range="20" data-validate-words="1"  required="required"
               name="interfaceLanguage" value="${appInfo.interfaceLanguage}"
               placeholder="请输入软件支持的界面语言" type="text">
-            </div>
+            </div>9   
           </div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">软件大小 <span class="required">*</span>
@@ -105,6 +105,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
             	<input id="statusName" type="text" class="form-control col-md-7 col-xs-12" 
               	name="statusName" value="${appInfo.statusName}" readonly="readonly">
+                <input type="hidden" name="status" value="${appInfo.status}">
             </div>
           </div>
           <div class="item form-group">

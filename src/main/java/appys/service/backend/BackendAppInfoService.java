@@ -23,4 +23,11 @@ public interface BackendAppInfoService {
                             Integer queryFlatformId,
                             Integer querystatus,
                             Integer devId);
+    /**
+     * 审核
+     * @param id
+     * @param status
+     * @return
+     */
+    public boolean updateSatus(Integer id, Integer status);
 }

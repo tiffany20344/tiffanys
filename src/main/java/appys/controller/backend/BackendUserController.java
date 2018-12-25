@@ -2,14 +2,19 @@ package appys.controller.backend;
 
 import appys.pojo.AppCategory;
 import appys.pojo.AppInfo;
+import appys.pojo.AppVersion;
 import appys.pojo.DataDictionary;
 import appys.service.backend.BackendAppCateService;
 import appys.service.backend.BackendAppInfoService;
 import appys.service.backend.BackendDataService;
+import appys.service.developer.DevAppCheakService;
+import appys.service.developer.DevAppVersionService;
 import com.alibaba.fastjson.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +31,10 @@ public class BackendUserController {
     private BackendDataService backendDataService;
     @Autowired
     private BackendAppCateService backendAppCateService;
+    @Autowired
+    private DevAppCheakService devAppCheakService;
+    @Autowired
+    private DevAppVersionService devAppVersionService;
 
     @RequestMapping("/app")
     public  String getAppInfo(Integer currentPageNo,
@@ -82,5 +91,36 @@ public class BackendUserController {
     public  Object category(Integer parentId){
         List<AppCategory> appCategoryList =backendAppCateService.getAppCategoryList(parentId);
         return JSONArray.toJSONString(appCategoryList);
+    }
+
+    @RequestMapping(value="/check",method=RequestMethod.GET)
+    public String check(@RequestParam(value="aid",required=false) String appId,
+                        @RequestParam(value="vid",required=false) String versionId,
+                        HttpServletRequest request){
+        AppInfo appInfo = null;
+        AppVersion appVersion = null;
+        try {
+            appInfo = devAppCheakService.getUpdInfoById(Integer.parseInt(appId));
+            appVersion = devAppVersionService.getAppVersion(Integer.parseInt(versionId));
+        }catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        request.setAttribute("appVersion",appVersion);
+        request.setAttribute("appInfo",appInfo);
+        return "backend/appcheck";
+    }
+
+    @RequestMapping(value="/checksave",method= RequestMethod.POST)
+    public String checkSave(AppInfo appInfo){
+        try {
+            if(backendAppInfoService.updateSatus(appInfo.getId(),appInfo.getStatus())){
+                return "redirect:/mag/info/app";
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return "backend/appcheck";
     }
 }

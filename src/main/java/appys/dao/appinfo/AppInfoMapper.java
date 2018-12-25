@@ -68,4 +68,41 @@ public interface AppInfoMapper {
      * @return
      */
     public AppInfo getUpdInfoById(@Param("id")Integer id);
+
+    /**
+     * 修改信息
+     * @param appInfo
+     * @return
+     */
+    public boolean updateInfo(AppInfo appInfo);
+
+    /**
+     * 删除logo
+     * @param id
+     * @return
+     */
+    public boolean deleApplogo(@Param("id") Integer id);
+
+    /**
+     * 增加app版本
+     * @param vid
+     * @param aid
+     * @return
+     */
+    public boolean updAppVersion(@Param("vid") Integer vid,@Param("aid")Integer aid);
+
+    /**
+     * 根据id删除
+     * @param id
+     * @return
+     */
+    public boolean deleteAppInfoById(@Param("id") Integer id);
+
+    /**
+     * 审核
+     * @param id
+     * @param status
+     * @return
+     */
+    public boolean updateSatus(@Param("id") Integer id,@Param("status") Integer status);
 }

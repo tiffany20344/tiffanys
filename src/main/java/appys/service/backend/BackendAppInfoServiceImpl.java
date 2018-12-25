@@ -34,4 +34,14 @@ public class BackendAppInfoServiceImpl implements BackendAppInfoService {
         }
         return count;
     }
+
+    @Override
+    public boolean updateSatus(Integer id, Integer status) {
+        boolean flag = appInfoMapper.updateSatus(id,status);
+        if (flag==false){
+            flag=false;
+        }
+        return flag;
+    }
+
 }
