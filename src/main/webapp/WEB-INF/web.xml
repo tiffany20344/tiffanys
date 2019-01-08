@@ -55,7 +55,10 @@
     <servlet-name>spring</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/swagger/*</url-pattern>
+  </servlet-mapping>
   <!-- Spring配置 -->
   <!-- 当系统启动的时候，spring需要进行一些资源加载或者配置，都需要使用此监听去做 -->
   <listener>

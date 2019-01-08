@@ -320,8 +320,7 @@ public class DeAppCheakController {
             fileUploadError = Constants.FILEUPLOAD_ERROR_1;
         }else if(null != fileUploadError && fileUploadError.equals("error2")){
             fileUploadError	= Constants.FILEUPLOAD_ERROR_2;
-        }else if(null != fileUploadError && fileUploadError.equals("error3")){
-            fileUploadError = Constants.FILEUPLOAD_ERROR_3;
+          fileUploadError = Constants.FILEUPLOAD_ERROR_3;
         }
         List<AppVersion> appVersionList = null;
         try {
